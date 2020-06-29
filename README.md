@@ -1,5 +1,5 @@
 # reddit-img-downloader
-This python script is going to download one or multiple subreddit's images along with it's thumbnail.
+This python script is going to download one or multiple subreddit's images along with it's thumbnail in the directory where the script is executed. Thumbnails will start with thumb.*
 # Before running the script
 You need to install urllib3. ```pip install urllib3```
 # How to use
@@ -12,3 +12,5 @@ The subreddit's url needs to be given in this format:
 For example, downloading 50 images from the subreddit t/wallpapers would be like this
 
 ``` python download_img_reddit.py https://www.reddit.com/r/wallpapers.json?limit=170 ```
+
+
