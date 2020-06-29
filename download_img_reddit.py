@@ -15,8 +15,11 @@ for url in sys.argv:
         if item["data"]["url"].find("comments") == -1:
             print(item["data"]["thumbnail"]+item["data"]["url"]) #print the current image downloading
             if not item["data"]["thumbnail"] in exclude:
-                urllib.request.urlretrieve(item["data"]["thumbnail"],"thumb."+item["data"]["url"].replace("/","_"))
-                urllib.request.urlretrieve(item["data"]["url"],item["data"]["url"].replace("/","_"))
+                try:
+                    urllib.request.urlretrieve(item["data"]["thumbnail"],"thumb."+item["data"]["url"].replace("/","_"))
+                    urllib.request.urlretrieve(item["data"]["url"],item["data"]["url"].replace("/","_"))
+                except:
+                    print("Error While Downloading" + item["data"]["url"])
 
 subprocess.Popen("notify-send 'Done downloading wallpapers' ", shell=True, stdout=subprocess.PIPE).stdout.read()
 
